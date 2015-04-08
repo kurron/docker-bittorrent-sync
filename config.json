@@ -1,7 +1,7 @@
 {
     "device_name": "Dockerized BitTorrent Sync",
     "listening_port" : 1234,
-    "storage_path" : "/mnt/storage",
+    "storage_path" : "/mnt/bookkeeping",
     "use_upnp" : true,
     "download_limit" : 0,
     "upload_limit" : 0,

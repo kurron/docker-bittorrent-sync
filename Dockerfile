@@ -3,6 +3,8 @@ FROM ubuntu:14.04
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 # Install BitTorrent Sync
 RUN apt-get --quiet update && \
     apt-get --quiet --yes install wget && \
@@ -17,12 +19,18 @@ RUN apt-get --quiet update && \
     rm -f /btsync.tar.gz && \
     chown -R root:root /opt/btsync
 
+# where to write bookkeeping files to
+VOLUME /mnt/bookkeeping
+
+# where to read files to share from
+VOLUME /mnt/shared
+
 # export meta-data about this container
 ENV KURRON_BTSYNC_VERSION 2.0.104 
 
-ADD btsync.json /opt/btsync/btsync.json
+ADD config.json /opt/btsync/config.json
 
 EXPOSE 1234
 EXPOSE 8888
 
-ENTRYPOINT ["/opt/btsync/btsync", "--nodaemon", "--config /opt/btsync/btsync.json"]
+ENTRYPOINT ["/opt/btsync/btsync", "--nodaemon", "--config /opt/btsync/config.json"]
