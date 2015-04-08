@@ -1,0 +1,16 @@
+{
+    "device_name": "Dockerized BitTorrent Sync",
+    "listening_port" : 1234,
+    "storage_path" : "/mnt/storage",
+    "use_upnp" : true,
+    "download_limit" : 0,
+    "upload_limit" : 0,
+
+    "webui" :
+    {
+        "listen" : "0.0.0.0:8888",
+        "directory_root" : "/mnt/shared/",
+        "directory_root_policy" : "all"
+    }
+}
+
