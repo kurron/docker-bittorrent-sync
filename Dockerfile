@@ -22,9 +22,6 @@ RUN apt-get --quiet update && \
 # where to write bookkeeping files to
 VOLUME /mnt/bookkeeping
 
-# where to read files to share from
-VOLUME /mnt/shared
-
 # export meta-data about this container
 ENV KURRON_BTSYNC_VERSION 2.0.104 
 
