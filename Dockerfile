@@ -22,6 +22,9 @@ RUN apt-get --quiet update && \
 # where to write bookkeeping files to
 VOLUME /mnt/bookkeeping
 
+# where to read/write files
+VOLUME /mnt/sync
+
 # export meta-data about this container
 ENV KURRON_BTSYNC_VERSION 2.0.104 
 
@@ -34,4 +37,3 @@ EXPOSE 8888
 
 ENTRYPOINT ["/usr/bin/btsync", "--nodaemon"]
 CMD ["--config", "/opt/btsync/config.json"]
-#CMD ["ls", "-alh", "/usr/bin/btsync"]
