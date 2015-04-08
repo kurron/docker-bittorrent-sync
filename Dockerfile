@@ -15,7 +15,7 @@ RUN apt-get --quiet update && \
          --no-cookies \
          https://download-cdn.getsyncapp.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz && \
     mkdir -p /opt/btsync && \
-    tar --gunzip --extract --verbose --file /btsync.tar.gz --directory /opt/btsync && \
+    tar --gunzip --extract --verbose --file /btsync.tar.gz --directory /usr/bin && \
     rm -f /btsync.tar.gz && \
     chown -R root:root /opt/btsync
 
@@ -30,7 +30,11 @@ ENV KURRON_BTSYNC_VERSION 2.0.104
 
 ADD config.json /opt/btsync/config.json
 
+RUN chown -R root:root /opt/btsync
+
 EXPOSE 1234
 EXPOSE 8888
 
-ENTRYPOINT ["/opt/btsync/btsync", "--nodaemon", "--config /opt/btsync/config.json"]
+ENTRYPOINT ["/usr/bin/btsync", "--nodaemon"]
+CMD ["--config", "/opt/btsync/config.json"]
+#CMD ["ls", "-alh", "/usr/bin/btsync"]
