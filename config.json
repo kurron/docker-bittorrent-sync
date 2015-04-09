@@ -1,5 +1,5 @@
 {
-    "device_name": "Dockerized BitTorrent Sync",
+//  "device_name": "Dockerized BitTorrent Sync",
     "listening_port" : 1234,
     "storage_path" : "/mnt/bookkeeping",
     "use_upnp" : false,
