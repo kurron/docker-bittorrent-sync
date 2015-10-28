@@ -25,8 +25,7 @@ VOLUME /mnt/bookkeeping
 # where to read/write files
 VOLUME /mnt/sync
 
-# export meta-data about this container
-ENV KURRON_BTSYNC_VERSION 2.0.104 
+LABEL Version="2.2.5"
 
 ADD config.json /opt/btsync/config.json
 
