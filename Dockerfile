@@ -25,7 +25,7 @@ VOLUME /mnt/bookkeeping
 # where to read/write files
 VOLUME /mnt/sync
 
-LABEL Version="2.2.7"
+LABEL Version="2.3.3"
 
 ADD config.json /opt/btsync/config.json
 
