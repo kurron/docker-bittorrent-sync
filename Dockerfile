@@ -13,19 +13,19 @@ RUN apt-get --quiet update && \
          --output-document=/btsync.tar.gz \
          --no-check-certificate \
          --no-cookies \
-         https://download-cdn.getsyncapp.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz && \
+         https://download-cdn.getsync.com/stable/linux-x64/BitTorrent-Sync_x64.tar.gz && \
     mkdir -p /opt/btsync && \
     tar --gunzip --extract --verbose --file /btsync.tar.gz --directory /usr/bin && \
     rm -f /btsync.tar.gz && \
     chown -R root:root /opt/btsync
 
 # where to write bookkeeping files to
-VOLUME /mnt/bookkeeping
+VOLUME /mnt/sync/bookkeeping
 
 # where to read/write files
 VOLUME /mnt/sync
 
-LABEL Version="2.3.3"
+LABEL Version="2.3.6"
 
 ADD config.json /opt/btsync/config.json
 
